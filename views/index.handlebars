@@ -1,0 +1,57 @@
+<div class='container'>
+
+  <div class='row'>
+    <div class='col-md-3'></div>
+    <div class='col-md-6 col-xs-12'>
+      <form action='/create' method='POST'>
+        <div class="form-group">
+          <textarea class="form-control" name='burger' id="burgerTextBox" rows="1"></textarea>
+          <h5 class='text-center'>Enter the name of the burger you would like to eat and hit Submit</h5>
+        </div>
+        <button type="submit" class="btn btn-primary center-block">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <div class='row'>
+    {{!-- <div class='col-md-0 col-xs-0'></div> --}}
+    <div class='col-md-5 col-xs-12' id='newBurgersContainer'>
+      <h4>Menu</h4>
+      {{#each burgers}}
+        <div class='row'>
+          <div class='col-md-8'>
+            <div class="well well-lg" data-id='{{this.id}}'>{{this.id}}. {{this.burger_name}}</div>
+          </div>
+          <div class='col-md-4'>
+
+            <div class='row'>  
+              <form class='devourButton' action='/devour' method='POST'>
+                <input type="text" name='customer' class="form-control" id="customer" placeholder="Customer?"></input>
+                <input type='hidden' name='id' value={{this.id}}></input>
+                <button class='well well-sm' type='submit'>
+                  Devour
+                </button>
+              </form> 
+            </div>
+          </div>       
+        </div>
+      {{/each}}
+    </div>
+
+
+    <div class='col-md-3'></div>
+    <div class='col-md-4 col-xs-12' id='devouredBurgersContainer'>
+      <h4>Devoured</h4>
+      {{#each devoured}}
+        <div class='row'>
+          {{!-- <div class='col-md-8'> --}}
+            <div class="well" data-id='{{this.id}}'>{{this.burger_name}} (Eaten by {{this.Customer.name}})</div>
+{{!--           </div>
+          <div class='col-md-4'>  
+          </div>   --}}     
+        </div>
+      {{/each}}
+    </div>
+  </div>
+
+</div>

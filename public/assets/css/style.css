@@ -1,0 +1,25 @@
+body {
+	background-color: #bc0016;
+	color: yellow;
+}
+
+.logo {
+	display: block;
+	margin: 0 auto;
+	position: relative;
+}
+
+.well {
+	background-color: yellow;
+	color: #bc0016;
+	font-weight: bold;
+}
+
+.sequelize {
+	height: 75px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	display: inline-block;
+}
+
